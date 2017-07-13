@@ -1,0 +1,32 @@
+use StdIO: all;
+use YAML: all;
+
+int main()
+{
+  a = 1;
+  b = "test";
+  e = 1.1f;
+  c = createYAMLEmitter( stderr);
+
+  openYAMLStream( c);
+  openYAMLDoc( c);
+  openYAMLMap( c);
+    YAMLEmit(c, b);
+    YAMLEmit(c, a);
+    YAMLEmit(c, "what");
+    YAMLEmit(c, e);
+    YAMLEmit(c, "gah");
+    YAMLEmitFormat(c, "%s %s", "1", "2");
+    YAMLEmit(c, "seq1");
+    openYAMLSeq( c);
+      YAMLEmit(c, a);
+      YAMLEmit(c, a);
+      YAMLEmit(c, a);
+      YAMLEmit(c, a);
+    closeYAMLSeq( c);
+  closeYAMLMap( c);
+  closeYAMLDoc( c);
+  closeYAMLStream( c);
+
+  return 0;
+}

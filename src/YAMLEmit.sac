@@ -1,0 +1,97 @@
+class YAMLEmit;
+external classtype;
+
+use TermFile: all;
+use Terminal: {TheTerminal};
+use String: all;
+use YAMLEmitter: all;
+
+export all except {YAMLEmitObj};
+
+external objdef YAMLEmit YAMLEmitObj;
+
+external YAMLEmitter createYAMLEmitter( TermFile &stream);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_create_emitter"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [0,1]
+
+/*
+ * YAML Events (excluding scalars)
+ */
+
+external void openYAMLStream( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_stream_begin"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+external void closeYAMLStream( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_stream_end"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+external void openYAMLDoc( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_doc_begin"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+external void closeYAMLDoc( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_doc_end"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+external void openYAMLMap( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_map_begin"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+external void closeYAMLMap( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_map_end"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+external void openYAMLSeq( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_seq_begin"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+external void closeYAMLSeq( YAMLEmitter& emitter);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_seq_end"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1]
+
+/*
+ * YAML Scalar Events
+ */
+
+external void YAMLEmit( YAMLEmitter& emitter, string value);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_value_str"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1,2]
+
+external void YAMLEmit( YAMLEmitter& emitter, int value);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_value_int"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1,2]
+
+external void YAMLEmit( YAMLEmitter& emitter, float value);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_value_float"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1,2]
+
+external void YAMLEmitFormat( YAMLEmitter& emitter, string format, ...);
+  #pragma effect YAMLEmitObj, TheTerminal
+  #pragma linkname "yaml_valuef_str"
+  #pragma linkobj "src/YAMLEmit/yaml_emit.o"
+  #pragma linksign [1,2]

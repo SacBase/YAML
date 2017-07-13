@@ -1,0 +1,6 @@
+module YAML;
+
+import YAMLEmitter: all;
+import YAMLEmit: all;
+
+export all;

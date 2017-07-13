@@ -1,0 +1,6 @@
+class YAMLEmitter;
+external classtype;
+  #pragma freefun "free_emitter"
+  #pragma linkobj "src/YAMLEmitter/free_emitter.o"
+
+export all;
