@@ -2,7 +2,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 3.3)
 INCLUDE ("${CMAKE_SOURCE_DIR}/cmake-common/sac2c-variables.cmake")
 INCLUDE ("${CMAKE_SOURCE_DIR}/cmake-common/resolve-sac2c-dependencies.cmake")
 
-# C files relatively to thes CMakeLists.txt.
+# C files relatively to this CMakeLists.txt.
 SET (C_DEPS_SRC
     src/YAMLEmitter/free_emitter.c
     src/YAMLEmit/yaml_emit.c
@@ -15,8 +15,8 @@ SET (SAC_SRC
     YAML.sac
 )
 
-# TODO(artem) We may want to introduce a mechanism of generating depenencies
-#             on a given sac2c versoin.  That is, recompiler all modules if
+# TODO(artem) We may want to introduce a mechanism of generating dependancies
+#             on a given sac2c version. That is, recompiler all modules if
 #             sac2c version changes.
 
 

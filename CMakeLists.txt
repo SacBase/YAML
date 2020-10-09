@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 3.3)
 
 PROJECT (sac-yamlmodule)
-#FIXME(artem) we can create a definitoin for language "SAC" which will
+#FIXME(artem) we can create a definition for language "SAC" which will
 #             automatically pull sac2c compiler.
 
 # Where the compiled sac modules result
